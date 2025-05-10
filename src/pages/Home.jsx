@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
 import SectionWrapper from "../components/SectionWrapper";
 
-import img from "../assets/images/img88.jpg";
+import img from "../../public/assets/images/img88.jpg";
 
 const Home = () => {
   // Animation variants
