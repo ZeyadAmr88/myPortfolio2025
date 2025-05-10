@@ -6,13 +6,12 @@ import SectionTitle from "../components/SectionTitle"
 import ProjectCard from "../components/ProjectCard"
 import { useState, useEffect } from "react"
 
-// Project data based on Zeyad's resume
 const projects = [
   {
     title: "Tala Brand",
     description:
       "Modern, responsive fashion e-commerce website built to showcase and sell stylish clothing products. I developed the frontend and integrated it with an existing backend (not built by me) to provide users with a seamless shopping experience. The source code cannot be shared as this is a paid project for a client.",
-    image: "/src/assets/images/tala.png",
+    image: "/images/tala.png",
     tags: ["React", "Tailwind CSS", "Responsive Design", "API Integration", "Axios"],
     githubLink: null,
     demoLink: "https://tala8brand.netlify.app/",
@@ -21,7 +20,7 @@ const projects = [
     title: "Zshop E-commerce",
     description:
       "E-commerce platform with user-friendly features, including password reset functionality. Utilized Firebase for authentication and real-time database for efficient data handling.",
-    image: "/src/assets/images/zshop.png",
+    image: "/images/zshop.png",
     tags: ["ReactJS", "Firebase", "Sass", "Bootstrap"],
     githubLink: "https://github.com/ZeyadAmr88/Z-shop-React-Ecommerce",
     demoLink: "https://z-shop-41095.web.app/",
@@ -30,7 +29,7 @@ const projects = [
     title: "Portfolio Website (Current)",
     description:
       "A responsive portfolio website built with React and Tailwind CSS, featuring animations and contact form.",
-    image: "/src/assets/images/myportfolio.png",
+    image: "/images/myportfolio.png",
     tags: ["React", "Tailwind CSS", "Framer Motion"],
     githubLink: "https://github.com/ZeyadAmr88/myPortfolio2025",
     demoLink: "https://zeyadamr.netlify.app/",
@@ -40,7 +39,7 @@ const projects = [
     title: "Snake Game",
     description:
       "A classic snake game recreated using HTML, CSS, and JavaScript. This browser-based game features responsive controls, collision detection, and a clean interface, offering a nostalgic yet smooth gaming experience.",
-    image: "/src/assets/images/snakegame.png",
+    image: "/images/snakegame.png",
     tags: ["JavaScript", "HTML", "CSS"],
     githubLink: "https://github.com/ZeyadAmr88/ZozSnakeGame.github.io",
     demoLink: "https://zeyadamr88.github.io/ZozSnakeGame.github.io/snakeGame.html",
@@ -48,7 +47,7 @@ const projects = [
   {
     title: "My Old Portfolio",
     description: "A clean and simple portfolio website showcasing my earlier work and skills.",
-    image: "/src/assets/images/myoldportfolio.jpg",
+    image: "/images/myoldportfolio.jpg",
     tags: ["HTML", "CSS"],
     githubLink: "https://github.com/ZeyadAmr88/zeyadamr88.github.io",
     demoLink: "https://zeyadamr88.github.io/portfolio.html",
@@ -57,7 +56,7 @@ const projects = [
   {
     title: "Portfolio 1",
     description: "A portfolio website with interactive elements and responsive design.",
-    image: "/src/assets/images/portfolio1.png",
+    image: "/images/portfolio1.png",
     tags: ["HTML", "CSS", "JavaScript"],
     githubLink: "http://github.com/ZeyadAmr88/amrnoufl.github.io",
     demoLink: "https://zeyadamr88.github.io/amrnoufl.github.io/Amr_portfolio.html",
@@ -66,7 +65,7 @@ const projects = [
   {
     title: "Portfolio 2",
     description: "Another portfolio design with different layout and styling approach.",
-    image: "/src/assets/images/portfolio2.png",
+    image: "/images/portfolio2.png",
     tags: ["HTML", "CSS", "JavaScript"],
     githubLink: "https://github.com/ZeyadAmr88/abdelghany.github.io",
     demoLink: "https://zeyadamr88.github.io/abdelghany.github.io/3b8anii-potfolio-2.html",
