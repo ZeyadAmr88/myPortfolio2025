@@ -32,8 +32,8 @@ const projects = [
       "A responsive portfolio website built with React and Tailwind CSS, featuring animations and contact form.",
     image: "/src/assets/images/myportfolio.png",
     tags: ["React", "Tailwind CSS", "Framer Motion"],
-    githubLink: "https://github.com",
-    demoLink: "https://example.com",
+    githubLink: "https://github.com/ZeyadAmr88/myPortfolio2025",
+    demoLink: "https://zeyadamr.netlify.app/",
     featured: false,
   },
   {
