@@ -41,9 +41,15 @@ const Navbar = () => {
       boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
     },
     solid: {
-      backgroundColor: "rgba(255, 255, 255, 0.85)",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
     },
+  };
+
+  // Mobile menu backdrop variants
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
 
   // Link hover animation
@@ -132,8 +138,9 @@ const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md glass-effect text-text-primary"
+              className="p-2.5 rounded-lg bg-white/80 shadow-sm border border-gray-200 text-text-primary hover:bg-white hover:shadow-md transition-all relative z-30"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -155,6 +162,20 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile menu backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={backdropVariants}
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-10 md:hidden"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
@@ -163,9 +184,9 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden"
+            className="md:hidden overflow-hidden relative z-20"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass-effect shadow-lg">
+            <div className="px-4 pt-3 pb-4 space-y-2 bg-white/95 shadow-lg border-b border-gray-200">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.name}
@@ -175,10 +196,10 @@ const Navbar = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`block px-3 py-3 rounded-md text-base font-medium ${
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       location.pathname === link.path
-                        ? "text-accent font-semibold"
-                        : "text-text-secondary hover:text-accent"
+                        ? "bg-accent/10 text-accent font-semibold"
+                        : "text-text-secondary hover:bg-gray-100 hover:text-accent"
                     }`}
                   >
                     {link.name}

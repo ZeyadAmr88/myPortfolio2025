@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { motion } from "framer-motion"
-import emailjs from "@emailjs/browser"
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
-  const formRef = useRef(null)
+  const formRef = useRef(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   // Initialize EmailJS with the public key
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-  }, [])
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setForm({ ...form, [name]: value })
-  }
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setSuccess(false)
-    setError(false)
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError(false);
 
     // Using EmailJS service with environment variables for security
     emailjs
@@ -43,23 +43,23 @@ const ContactForm = () => {
           to_email: "zeyad8amr88@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
-        setLoading(false)
-        setSuccess(true)
+        setLoading(false);
+        setSuccess(true);
         setForm({
           name: "",
           email: "",
           message: "",
-        })
+        });
       })
       .catch((error) => {
-        setLoading(false)
-        setError(true)
-        console.error("Error sending email:", error)
-      })
-  }
+        setLoading(false);
+        setError(true);
+        console.error("Error sending email:", error);
+      });
+  };
 
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -69,10 +69,17 @@ const ContactForm = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-white rounded-2xl shadow-xl p-8"
+        className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-5 sm:p-6 md:p-8"
       >
-        <div className="mb-6">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+          Send Me a Message
+        </h3>
+
+        <div className="mb-4 sm:mb-6">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+          >
             Your Name
           </label>
           <input
@@ -84,12 +91,15 @@ const ContactForm = () => {
             placeholder="John Doe"
             required
             autoComplete="name"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900  focus:outline-none focus:ring-2 focus:ring-slate-600"
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-slate-600 text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-6">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+        <div className="mb-4 sm:mb-6">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+          >
             Your Email
           </label>
           <input
@@ -101,12 +111,15 @@ const ContactForm = () => {
             placeholder="john@example.com"
             required
             autoComplete="email"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white  text-gray-900  focus:outline-none focus:ring-2 focus:ring-slate-500"
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-6">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700  mb-2">
+        <div className="mb-5 sm:mb-6">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+          >
             Your Message
           </label>
           <textarea
@@ -116,42 +129,44 @@ const ContactForm = () => {
             onChange={handleChange}
             placeholder="Hello, I'd like to talk about..."
             required
-            rows={6}
+            rows={5}
             autoComplete="off"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300  bg-white  text-gray-900  focus:outline-none focus:ring-2 focus:ring-slate-500 resize-none"
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-slate-500 resize-none text-sm sm:text-base"
           />
         </div>
 
-        <button
+        <motion.button
           type="submit"
           disabled={loading}
-          className="w-full py-3 px-6 rounded-lg bg-accent hover:bg-gray-900 text-white font-medium transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg bg-accent hover:bg-gray-900 text-white font-medium transition-colors disabled:opacity-70 disabled:cursor-not-allowed text-sm sm:text-base"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
           {loading ? "Sending..." : "Send Message"}
-        </button>
+        </motion.button>
 
         {success && (
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-4 text-green-600 text-center"
+            className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center text-sm sm:text-base"
           >
-            Your message has been sent successfully!
-          </motion.p>
+            <p>Your message has been sent successfully!</p>
+          </motion.div>
         )}
 
         {error && (
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-4 text-red-600 text-center"
+            className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-center text-sm sm:text-base"
           >
-            Something went wrong. Please try again later.
-          </motion.p>
+            <p>Something went wrong. Please try again later.</p>
+          </motion.div>
         )}
       </motion.form>
     </div>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;
