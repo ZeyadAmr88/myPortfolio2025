@@ -261,7 +261,7 @@ const volunteering = [
 // Main About Component
 const About = () => {
   return (
-    <main className="min-h-screen  gray-50 ">
+    <main className="min-h-screen bg-gray-50">
       {/* About Me Section */}
       <SectionWrapper id="about" animationVariant="fadeIn">
         <SectionTitle
@@ -269,12 +269,12 @@ const About = () => {
           subtitle="Get to know more about me and my background"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300"
+            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 overflow-hidden"
           >
             <div className="flex items-center mb-6">
               <div className="p-3 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full mr-4 text-white">
@@ -310,10 +310,10 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300"
+            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 overflow-hidden"
           >
             <div className="flex items-center mb-6">
               <div className="p-3 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full mr-4 text-white">
