@@ -35,12 +35,10 @@ const ContactForm = () => {
     emailjs
       .send(
         "service_7x21rfk",
-        "template_r33o4jt",
+        "template_x5oruwj",
         {
-          from_name: form.name,
-          to_name: "Zeyad Amr",
-          from_email: form.email,
-          to_email: "zeyad8amr88@gmail.com",
+          name: form.name,
+          email: form.email,
           message: form.message,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
